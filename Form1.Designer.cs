@@ -37,10 +37,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rb_minCount = new System.Windows.Forms.RadioButton();
-            this.rb_maxCount = new System.Windows.Forms.RadioButton();
-            this.rb_minprice = new System.Windows.Forms.RadioButton();
             this.rb_maxprice = new System.Windows.Forms.RadioButton();
+            this.rb_minprice = new System.Windows.Forms.RadioButton();
+            this.rb_maxCount = new System.Windows.Forms.RadioButton();
+            this.rb_minCount = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
@@ -49,8 +49,12 @@
             this.label6 = new System.Windows.Forms.Label();
             this.cb_types = new System.Windows.Forms.ComboBox();
             this.cb_supplyes = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.b_oldProduct = new System.Windows.Forms.Button();
+            this.b_avg = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.b_createDB = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -59,11 +63,11 @@
             // 
             // b_connect
             // 
-            this.b_connect.Location = new System.Drawing.Point(645, 24);
+            this.b_connect.Location = new System.Drawing.Point(608, 74);
             this.b_connect.Name = "b_connect";
-            this.b_connect.Size = new System.Drawing.Size(75, 23);
+            this.b_connect.Size = new System.Drawing.Size(138, 23);
             this.b_connect.TabIndex = 0;
-            this.b_connect.Text = "Connect";
+            this.b_connect.Text = "Склад";
             this.b_connect.UseVisualStyleBackColor = true;
             this.b_connect.Click += new System.EventHandler(this.b_connect_Click);
             // 
@@ -77,7 +81,7 @@
             // 
             // b_product
             // 
-            this.b_product.Location = new System.Drawing.Point(608, 74);
+            this.b_product.Location = new System.Drawing.Point(608, 105);
             this.b_product.Name = "b_product";
             this.b_product.Size = new System.Drawing.Size(138, 23);
             this.b_product.TabIndex = 4;
@@ -87,7 +91,7 @@
             // 
             // b_supplers
             // 
-            this.b_supplers.Location = new System.Drawing.Point(608, 104);
+            this.b_supplers.Location = new System.Drawing.Point(608, 134);
             this.b_supplers.Name = "b_supplers";
             this.b_supplers.Size = new System.Drawing.Size(138, 23);
             this.b_supplers.TabIndex = 5;
@@ -97,7 +101,7 @@
             // 
             // b_type
             // 
-            this.b_type.Location = new System.Drawing.Point(608, 134);
+            this.b_type.Location = new System.Drawing.Point(608, 163);
             this.b_type.Name = "b_type";
             this.b_type.Size = new System.Drawing.Size(138, 23);
             this.b_type.TabIndex = 6;
@@ -141,29 +145,17 @@
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             // 
-            // rb_minCount
+            // rb_maxprice
             // 
-            this.rb_minCount.AutoSize = true;
-            this.rb_minCount.Location = new System.Drawing.Point(7, 11);
-            this.rb_minCount.Name = "rb_minCount";
-            this.rb_minCount.Size = new System.Drawing.Size(110, 17);
-            this.rb_minCount.TabIndex = 0;
-            this.rb_minCount.TabStop = true;
-            this.rb_minCount.Text = "Мин. количество";
-            this.rb_minCount.UseVisualStyleBackColor = true;
-            this.rb_minCount.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
-            // 
-            // rb_maxCount
-            // 
-            this.rb_maxCount.AutoSize = true;
-            this.rb_maxCount.Location = new System.Drawing.Point(7, 35);
-            this.rb_maxCount.Name = "rb_maxCount";
-            this.rb_maxCount.Size = new System.Drawing.Size(109, 17);
-            this.rb_maxCount.TabIndex = 1;
-            this.rb_maxCount.TabStop = true;
-            this.rb_maxCount.Text = "Мах. количество";
-            this.rb_maxCount.UseVisualStyleBackColor = true;
-            this.rb_maxCount.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
+            this.rb_maxprice.AutoSize = true;
+            this.rb_maxprice.Location = new System.Drawing.Point(127, 34);
+            this.rb_maxprice.Name = "rb_maxprice";
+            this.rb_maxprice.Size = new System.Drawing.Size(75, 17);
+            this.rb_maxprice.TabIndex = 3;
+            this.rb_maxprice.TabStop = true;
+            this.rb_maxprice.Text = "Мах. цена";
+            this.rb_maxprice.UseVisualStyleBackColor = true;
+            this.rb_maxprice.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
             // 
             // rb_minprice
             // 
@@ -177,17 +169,29 @@
             this.rb_minprice.UseVisualStyleBackColor = true;
             this.rb_minprice.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
             // 
-            // rb_maxprice
+            // rb_maxCount
             // 
-            this.rb_maxprice.AutoSize = true;
-            this.rb_maxprice.Location = new System.Drawing.Point(127, 34);
-            this.rb_maxprice.Name = "rb_maxprice";
-            this.rb_maxprice.Size = new System.Drawing.Size(75, 17);
-            this.rb_maxprice.TabIndex = 3;
-            this.rb_maxprice.TabStop = true;
-            this.rb_maxprice.Text = "Мах. цена";
-            this.rb_maxprice.UseVisualStyleBackColor = true;
-            this.rb_maxprice.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
+            this.rb_maxCount.AutoSize = true;
+            this.rb_maxCount.Location = new System.Drawing.Point(7, 35);
+            this.rb_maxCount.Name = "rb_maxCount";
+            this.rb_maxCount.Size = new System.Drawing.Size(109, 17);
+            this.rb_maxCount.TabIndex = 1;
+            this.rb_maxCount.TabStop = true;
+            this.rb_maxCount.Text = "Мах. количество";
+            this.rb_maxCount.UseVisualStyleBackColor = true;
+            this.rb_maxCount.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
+            // 
+            // rb_minCount
+            // 
+            this.rb_minCount.AutoSize = true;
+            this.rb_minCount.Location = new System.Drawing.Point(7, 11);
+            this.rb_minCount.Name = "rb_minCount";
+            this.rb_minCount.Size = new System.Drawing.Size(110, 17);
+            this.rb_minCount.TabIndex = 0;
+            this.rb_minCount.TabStop = true;
+            this.rb_minCount.Text = "Мин. количество";
+            this.rb_minCount.UseVisualStyleBackColor = true;
+            this.rb_minCount.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
             // 
             // label2
             // 
@@ -203,13 +207,13 @@
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView3.Location = new System.Drawing.Point(28, 393);
             this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView3.Size = new System.Drawing.Size(389, 150);
             this.dataGridView3.TabIndex = 11;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(275, 393);
+            this.label3.Location = new System.Drawing.Point(423, 407);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(99, 13);
             this.label3.TabIndex = 12;
@@ -218,7 +222,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(275, 422);
+            this.label4.Location = new System.Drawing.Point(423, 436);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(111, 13);
             this.label4.TabIndex = 13;
@@ -227,7 +231,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(278, 452);
+            this.label5.Location = new System.Drawing.Point(426, 466);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(114, 13);
             this.label5.TabIndex = 14;
@@ -236,7 +240,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(275, 480);
+            this.label6.Location = new System.Drawing.Point(423, 494);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(243, 13);
             this.label6.TabIndex = 15;
@@ -245,44 +249,85 @@
             // cb_types
             // 
             this.cb_types.FormattingEnabled = true;
-            this.cb_types.Location = new System.Drawing.Point(459, 393);
+            this.cb_types.Location = new System.Drawing.Point(607, 407);
             this.cb_types.Name = "cb_types";
             this.cb_types.Size = new System.Drawing.Size(172, 21);
             this.cb_types.TabIndex = 16;
+            this.cb_types.SelectedValueChanged += new System.EventHandler(this.cb_types_SelectedValueChanged);
             // 
             // cb_supplyes
             // 
             this.cb_supplyes.FormattingEnabled = true;
-            this.cb_supplyes.Location = new System.Drawing.Point(459, 422);
+            this.cb_supplyes.Location = new System.Drawing.Point(607, 436);
             this.cb_supplyes.Name = "cb_supplyes";
             this.cb_supplyes.Size = new System.Drawing.Size(172, 21);
             this.cb_supplyes.TabIndex = 17;
+            this.cb_supplyes.SelectedIndexChanged += new System.EventHandler(this.cb_supplyes_SelectedIndexChanged);
             // 
-            // button1
+            // b_oldProduct
             // 
-            this.button1.Location = new System.Drawing.Point(567, 452);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "Показать";
-            this.button1.UseVisualStyleBackColor = true;
+            this.b_oldProduct.Location = new System.Drawing.Point(715, 466);
+            this.b_oldProduct.Name = "b_oldProduct";
+            this.b_oldProduct.Size = new System.Drawing.Size(75, 23);
+            this.b_oldProduct.TabIndex = 18;
+            this.b_oldProduct.Text = "Показать";
+            this.b_oldProduct.UseVisualStyleBackColor = true;
+            this.b_oldProduct.Click += new System.EventHandler(this.b_oldProduct_Click);
             // 
-            // button2
+            // b_avg
             // 
-            this.button2.Location = new System.Drawing.Point(567, 480);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 19;
-            this.button2.Text = "Показать";
-            this.button2.UseVisualStyleBackColor = true;
+            this.b_avg.Location = new System.Drawing.Point(715, 494);
+            this.b_avg.Name = "b_avg";
+            this.b_avg.Size = new System.Drawing.Size(75, 23);
+            this.b_avg.TabIndex = 19;
+            this.b_avg.Text = "Показать";
+            this.b_avg.UseVisualStyleBackColor = true;
+            this.b_avg.Click += new System.EventHandler(this.b_avg_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // b_createDB
+            // 
+            this.b_createDB.Location = new System.Drawing.Point(690, 24);
+            this.b_createDB.Name = "b_createDB";
+            this.b_createDB.Size = new System.Drawing.Size(75, 23);
+            this.b_createDB.TabIndex = 20;
+            this.b_createDB.Text = "Создать БД";
+            this.b_createDB.UseVisualStyleBackColor = true;
+            this.b_createDB.Click += new System.EventHandler(this.b_createDB_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(608, 24);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 21;
+            this.button3.Text = "Конект";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.Red;
+            this.label7.Location = new System.Drawing.Point(239, 5);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(326, 13);
+            this.label7.TabIndex = 22;
+            this.label7.Text = "ЕСЛИ БАЗЫ НЕТ НА КОМПЬЮТЕРЕ , НАЖМИТЕ <СОЗДАТЬ>";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 588);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.b_createDB);
+            this.Controls.Add(this.b_avg);
+            this.Controls.Add(this.b_oldProduct);
             this.Controls.Add(this.cb_supplyes);
             this.Controls.Add(this.cb_types);
             this.Controls.Add(this.label6);
@@ -335,8 +380,12 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cb_types;
         private System.Windows.Forms.ComboBox cb_supplyes;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button b_oldProduct;
+        private System.Windows.Forms.Button b_avg;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button b_createDB;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label7;
     }
 }
 
