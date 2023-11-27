@@ -5,6 +5,8 @@ VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BD_stock", "BD_stock.csproj", "{9F1DA419-0D11-4925-9921-67330413ED05}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataConnection", "..\DataConnection\DataConnection.csproj", "{15B95D75-A69E-4B49-B97C-E612BC5EBF81}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{9F1DA419-0D11-4925-9921-67330413ED05}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F1DA419-0D11-4925-9921-67330413ED05}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F1DA419-0D11-4925-9921-67330413ED05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15B95D75-A69E-4B49-B97C-E612BC5EBF81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15B95D75-A69E-4B49-B97C-E612BC5EBF81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15B95D75-A69E-4B49-B97C-E612BC5EBF81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15B95D75-A69E-4B49-B97C-E612BC5EBF81}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataConnection;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,16 +17,18 @@ namespace BD_stock
 {
     public partial class Form1 : Form
     {
-        static string strCon = $"Data Source ={Environment.MachineName}\\SQLEXPRESS; database = Stock; Integrated Security = SSPI; Connect Timeout = 10;";
+        static string strCon = $"Data Source ={Environment.MachineName}\\SQLEXPRESS; database = Stock; Integrated Security = SSPI; Connect Timeout = 10;TrustServerCertificate=True";
         SqlConnection _conn = new SqlConnection(strCon);
         SqlDataAdapter adapter = new SqlDataAdapter();
         DataSet ds;
+        MSSQL ms_conn = new MSSQL(strCon);
         public Form1()
         {
             InitializeComponent();
             tb_connectstring.Text = strCon;
             GetType();
             GetSyppliers();
+            ms_conn.GetConnection();
         }
         private void createDB()
         {
@@ -93,8 +96,8 @@ namespace BD_stock
         {
              string sql = "select Suppliers.[name] as поставщик,Product.[name] as продукт,price as цена,dateSupply as дата,quantity as  количество" +
                 " from Supplys,Product,Suppliers where Supplys.[supplier_id] = Suppliers.id and Supplys.[product_id] = Product.id ";
-           
-             SelectBD(sql,dataGridView1);
+
+            SelectBD_myClassBD(sql,dataGridView1);
             
         }
         private void SelectBD(string sqltext,DataGridView grid)
@@ -112,7 +115,16 @@ namespace BD_stock
                 grid.DataSource = ds.Tables[0];
             }
         }
-       
+        private void SelectBD_myClassBD(string sqltext, DataGridView grid)
+        {
+            ms_conn.ConnectOpen();
+            ds = new DataSet();
+            SqlCommandBuilder commandBuilder = new SqlCommandBuilder(ms_conn.GetAdapter(sqltext) as SqlDataAdapter);
+            ms_conn.DataAdapter.Fill(ds);
+            grid.DataSource = ds.Tables[0];
+            ms_conn.ConnectClose();
+        }
+
         private void b_product_Click(object sender, EventArgs e)
         {
             string sql = "select Product.[name] as product, ProductType.[name] as typeProd from  Product,ProductType where ProductType.id=Product.type_id;";
